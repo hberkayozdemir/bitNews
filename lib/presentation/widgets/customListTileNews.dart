@@ -6,7 +6,11 @@ Widget customListTileNews(News news, BuildContext context) {
   return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NewsDetails(news: news,)));
+            context,
+            MaterialPageRoute(
+                builder: (context) => NewsDetails(
+                      news: news,
+                    )));
       },
       child: Container(
         margin: EdgeInsets.all(12),
@@ -37,10 +41,14 @@ Widget customListTileNews(News news, BuildContext context) {
             Container(
               padding: EdgeInsets.all(6.0),
               decoration: BoxDecoration(
-                color: Colors.red,
+                color: Colors.orange,
                 borderRadius: BorderRadius.circular(30.0),
               ),
-              child: Text(news.source.name),
+              child: Text(news.source.name,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18)),
             ),
             SizedBox(height: 8.0),
             Text(news.title,

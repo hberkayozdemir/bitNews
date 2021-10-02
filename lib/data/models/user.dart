@@ -5,19 +5,12 @@ class User {
   String surname;
   String email;
   String password;
+  String comfirmPassword;
   User({
     this.name,
     this.surname,
     this.email,
     this.password,
+    this.comfirmPassword,
   });
-
-  factory User.fromMap(Map<String, dynamic> map) {
-    return User(
-      name: map['name'],
-      surname: map['surname'],
-      email: map['email'],
-      password: map['password'],
-    );
-  }
 }

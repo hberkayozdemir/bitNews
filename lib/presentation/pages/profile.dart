@@ -87,7 +87,7 @@ class _ProfileState extends State<Profile> {
               child: Ink(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.indigo,
+                  color: Color.fromRGBO(245, 147, 26, 1.0),
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(10),

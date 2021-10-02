@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.indigo,
+          backgroundColor: Color.fromRGBO(245, 147, 26, 1.0),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -36,32 +36,34 @@ class _HomeState extends State<Home> {
             ],
           )),
       body: tabs[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.indigo,
-        iconSize: 26,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.black,
-        currentIndex: _currentIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text("Home"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.menu_book),
-            title: Text("News"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Text("Profile"),
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+      bottomNavigationBar: Container(
+        child: BottomNavigationBar(
+          backgroundColor: Color.fromRGBO(245, 147, 26, 1.0),
+          iconSize: 26,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.black,
+          currentIndex: _currentIndex,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text("Home"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.menu_book),
+              title: Text("News"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              title: Text("Profile"),
+            ),
+          ],
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+        ),
       ),
     );
   }
