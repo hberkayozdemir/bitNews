@@ -1,5 +1,4 @@
 // @dart=2.9
-import 'dart:convert';
 import 'package:bithaber/data/models/source_model_news.dart';
 
 class News {

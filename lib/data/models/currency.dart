@@ -1,6 +1,7 @@
 // @dart=2.9
 
 class Currency {
+  List<String> currencyList;
   String id;
   String logoUrl;
   String name;
@@ -13,9 +14,9 @@ class Currency {
     return Currency(
       id: json['id'] as String,
       name: json['name'] as String,
-      logoUrl: json['logoUrl'] as String,
-      price: double.parse(json['price']) as double,
-      oneDayChange: double.parse(json['1d']['price_change_pct']) as double,
+      logoUrl: json['logo_url'] as String,
+      price: double.parse(json['price']),
+      oneDayChange: double.parse(json['1d']['price_change_pct']),
     );
   }
 }

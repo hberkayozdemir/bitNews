@@ -40,7 +40,9 @@ dependencies:
   list_tile_switch: ^1.0.0
   http: ^0.13.3
   flutter_svg: ^0.22.0
+ 
 
+ 
 
 dev_dependencies:
   flutter_test:

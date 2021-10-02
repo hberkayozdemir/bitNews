@@ -1,61 +1,69 @@
+import 'package:bithaber/presentation/pages/coin_detail_page.dart';
+import 'package:bithaber/presentation/widgets/logoBuild.dart';
 import 'package:flutter/material.dart';
 import 'package:bithaber/data/models/currency.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-Widget listCryptoItem(Currency cur) {
-  double precent = cur.oneDayChange;
-  return Padding(
-    padding: const EdgeInsets.only(bottom: 20),
-    child: card(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SvgPicture.network(
-            cur.logoUrl.toString(),
-            placeholderBuilder: (context) =>
-                CircularProgressIndicator(color: Colors.deepOrange),
-            height: 50.0,
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
+Widget listCryptoItem(Currency cur, BuildContext context) {
+  double precent = cur.oneDayChange * 100;
+
+  return InkWell(
+    onTap: () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => CoinDetailPage(currency: cur)));
+    },
+    child: Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: card(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            buildLogo(cur, context),
+            SizedBox(
+              width: 20,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    cur.id.toString(),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  Text(
+                    cur.price.toStringAsFixed(5),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black45,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  cur.id.toString(),
+                  cur.name.toString(),
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 Text(
-                  cur.price.toString(),
+                  precent >= 0
+                      ? '+ ${precent.toStringAsFixed(2)} %'
+                      : '${precent.toStringAsFixed(2)}%',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black45,
+                    color: precent >= 0 ? Colors.green : Colors.pink,
                   ),
                 ),
               ],
             ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                cur.name.toString(),
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              Text(
-                precent >= 0 ? '+ $precent %' : '$precent %',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: precent >= 0 ? Colors.green : Colors.pink,
-                ),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );

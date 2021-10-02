@@ -23,9 +23,9 @@ class _CoinsState extends State<Coins> {
           return ListView.builder(
               itemCount: snapshot.data.length,
               itemBuilder: (context, index) =>
-                  listCryptoItem(currencys[index]));
+                  listCryptoItem(currencys[index], context));
         } else {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(
               color: Colors.indigo,
             ),

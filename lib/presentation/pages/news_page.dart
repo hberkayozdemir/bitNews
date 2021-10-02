@@ -3,6 +3,7 @@ import 'package:bithaber/data/data_providers/news_api.dart';
 import 'package:bithaber/data/models/news.dart';
 import 'package:bithaber/presentation/widgets/customListTileNews.dart';
 import 'package:bithaber/presentation/widgets/coins_category_buttons.dart';
+import 'package:bithaber/presentation/widgets/list_cyripto_item.dart';
 import 'package:flutter/material.dart';
 
 class NewsPage extends StatefulWidget {
@@ -19,8 +20,7 @@ class _NewsPageState extends State<NewsPage> {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: client.getNews(),
-        builder:
-            (BuildContext context, AsyncSnapshot<List<News>> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<List<News>> snapshot) {
           if (snapshot.hasData) {
             List<News> news = snapshot.data;
             return ListView.builder(

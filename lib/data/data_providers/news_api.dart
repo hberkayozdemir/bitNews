@@ -6,11 +6,7 @@ import 'package:http/http.dart';
 class NewsApi {
   final String apikey = "2fb3acbeb8c140469269507e696b8906";
   String endPointUrl =
-      "https://newsapi.org/v2/everything?q=doge&apiKey=2fb3acbeb8c140469269507e696b8906";
-
-  String endpointMutatedurl(List<String> searchableCurrencys) {
-    return "https://newsapi.org/v2/everything?q=$searchableCurrencys[...]&apiKey=2fb3acbeb8c140469269507e696b8906";
-  }
+      "https://newsapi.org/v2/everything?q=btc&apiKey=2fb3acbeb8c140469269507e696b8906";
 
   Future<List<News>> getNews() async {
     Response res = await get(Uri.parse(endPointUrl));

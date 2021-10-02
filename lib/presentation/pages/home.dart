@@ -1,5 +1,5 @@
 import 'package:bithaber/presentation/pages/coins.dart';
-import 'package:bithaber/presentation/pages/mylist.dart';
+
 import 'package:bithaber/presentation/pages/profile.dart';
 import 'package:bithaber/presentation/pages/news_page.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +15,9 @@ class _HomeState extends State<Home> {
   int _currentIndex = 0;
 
   final tabs = [
-    Coins(),
-    MyList(),
-    NewsPage(),
-    Profile(),
+    const Coins(),
+    const NewsPage(),
+    const Profile(),
   ];
 
   @override
@@ -50,10 +49,6 @@ class _HomeState extends State<Home> {
             title: Text("Home"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt),
-            title: Text("My List"),
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.menu_book),
             title: Text("News"),
           ),
@@ -68,17 +63,6 @@ class _HomeState extends State<Home> {
           });
         },
       ),
-      floatingActionButton: _currentIndex == 0
-          ? FloatingActionButton(
-              backgroundColor: Colors.indigo,
-              onPressed: () {
-                setState(() {
-                  _currentIndex = 1;
-                });
-              },
-              child: Icon(Icons.check),
-            )
-          : null,
     );
   }
 }

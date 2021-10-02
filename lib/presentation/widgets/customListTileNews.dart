@@ -6,7 +6,7 @@ Widget customListTileNews(News news, BuildContext context) {
   return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NewsDetails()));
+            context, MaterialPageRoute(builder: (context) => NewsDetails(news: news,)));
       },
       child: Container(
         margin: EdgeInsets.all(12),
