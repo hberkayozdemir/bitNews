@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "438058711012",
+    "project_id": "bitnews-53eac",
+    "storage_bucket": "bitnews-53eac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438058711012:android:b97df629fc6fca60ccb9f1",
+        "android_client_info": {
+          "package_name": "com.example.bithaber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438058711012-prvvv5br2qkg2094bakpr2bu2d2k8non.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bithaber",
+            "certificate_hash": "f2945c660a96f469f171894ffd217d9e85af46c1"
+          }
+        },
+        {
+          "client_id": "438058711012-fes7n10g6t9a8l5jfc9cg2fbo6fer6cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAooXh6yQLPb4EtKzAH4pw4rScKUZV92pM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438058711012-fes7n10g6t9a8l5jfc9cg2fbo6fer6cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

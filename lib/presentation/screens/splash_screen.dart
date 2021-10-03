@@ -1,6 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:bithaber/presentation/pages/landing.dart';
+import 'package:bithaber/presentation/pages/on_board_page.dart';
 import 'package:flutter/material.dart';
+
 class Splash extends StatelessWidget {
   const Splash({Key? key}) : super(key: key);
 
@@ -37,7 +39,7 @@ class Splash extends StatelessWidget {
           ),
         ],
       ),
-      nextScreen: const Landing(),
+      nextScreen: OnBoard(),
     ));
   }
 }
