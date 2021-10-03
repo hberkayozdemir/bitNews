@@ -10,7 +10,7 @@ class Splash extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: AnimatedSplashScreen(
-      backgroundColor: Colors.indigo,
+      backgroundColor: Color.fromRGBO(245, 147, 26, 1.0),
       duration: 1500,
       splashTransition: SplashTransition.slideTransition,
       splashIconSize: 200,
@@ -20,7 +20,7 @@ class Splash extends StatelessWidget {
           Expanded(
               child: Image(
             image: AssetImage(
-              "lib/assets/logo1.png",
+              "lib/assets/btctransparent.png",
             ),
           )),
           Expanded(

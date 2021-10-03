@@ -1,6 +1,5 @@
 import 'package:bithaber/presentation/pages/home.dart';
-import 'package:bithaber/presentation/pages/login_page.dart';
-import 'package:bithaber/presentation/pages/register_page.dart';
+
 import 'package:bithaber/presentation/widgets/google_sign_in_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -24,22 +23,6 @@ class Landing extends StatelessWidget {
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => Home()),
-        (Route<dynamic> route) => false,
-      );
-    }
-
-    void navigateRegister() {
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => RegisterPage()),
-        (Route<dynamic> route) => false,
-      );
-    }
-
-    void navigateLogin() {
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
         (Route<dynamic> route) => false,
       );
     }
@@ -94,76 +77,6 @@ class Landing extends StatelessWidget {
                               foreground: Paint()..shader = linearGradient)))
                 ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              /*  crossAxisAlignment: CrossAxisAlignment.stretch, */
-              children: [
-                InkWell(
-                  onTap: () {
-                    navigateLogin();
-                  },
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
-                      border: Border.all(
-                          color: Color.fromRGBO(245, 147, 26, 1.0),
-                          width: 2,
-                          style: BorderStyle.solid),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          SizedBox(width: 6),
-                          Text('Login',
-                              style: TextStyle(
-                                color: Color.fromRGBO(245, 147, 26, 1.0),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                              )),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                InkWell(
-                  onTap: () {
-                    navigateRegister();
-                  },
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            //rgb(245,147,26)
-                            Color.fromRGBO(245, 147, 26, 1.0),
-                            Color.fromRGBO(250, 100, 70, 1.0)
-                          ]),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          SizedBox(width: 7),
-                          Text('Register',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                              )),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
             ),
             SizedBox(
               height: 30,
