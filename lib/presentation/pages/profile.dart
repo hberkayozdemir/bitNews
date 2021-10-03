@@ -1,8 +1,12 @@
+//@dart=2.9
 import 'package:flutter/material.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:bithaber/bussinies_logic/provider/google_sign_in.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+  const Profile({Key key}) : super(key: key);
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -11,8 +15,8 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     dynamic _switchValues = [false, false];
-
     return Container(
       child: Center(
         child: Column(
@@ -23,66 +27,21 @@ class _ProfileState extends State<Profile> {
             CircleAvatar(
               radius: 70,
               backgroundColor: Colors.indigo,
-              backgroundImage: AssetImage("lib/assets/logo.png"),
+              backgroundImage: NetworkImage(user.photoURL),
             ),
             SizedBox(height: 30),
-            Text("Name : Hilmi Berkay",
+            Text("Name : " + user.displayName,
                 style: Theme.of(context).textTheme.subtitle2),
-            Text("Surname : Özdemir",
-                style: Theme.of(context).textTheme.subtitle2),
-            Text("Email : hilmiberkayozdemir@yahoo.com",
+            Text("Email : " + user.email,
                 style: Theme.of(context).textTheme.subtitle2),
             const SizedBox(height: 20),
-            const Text(
-              'System Settings',
-              style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 22,
-              ),
-            ),
-            ListTileSwitch(
-              value: _switchValues[0],
-              leading: const Icon(Icons.access_alarms),
-              onChanged: (value) {
-                value = _switchValues[0];
-                setState(() {
-                  _switchValues[0] = value;
-                });
-              },
-              switchActiveColor: Colors.indigo,
-              subtitle: Text("App Sends Notifications"),
-              title: const Text(
-                'Notification',
-              ),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Apperance',
-              style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 22,
-              ),
-            ),
-            const SizedBox(height: 20),
-            ListTileSwitch(
-              value: _switchValues[1],
-              toggleSelectedOnValueChange: true,
-              leading: const Icon(Icons.king_bed),
-              onChanged: (value) {
-                setState(() {
-                  _switchValues[1] = !value;
-                });
-              },
-              subtitle: const Text('Change app theme to dark'),
-              switchActiveColor: Colors.yellow,
-              title: const Text(
-                'Night Mode',
-              ),
-            ),
             SizedBox(width: 20),
             InkWell(
               onTap: () {
 // set state loged out token X
+                final provider =
+                    Provider.of<GoogleSignInProvider>(context, listen: false);
+                provider.logout();
               },
               child: Ink(
                 decoration: BoxDecoration(

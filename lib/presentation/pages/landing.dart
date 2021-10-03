@@ -44,10 +44,8 @@ class Landing extends StatelessWidget {
       );
     }
 
-
     return SafeArea(
-      child: Scaffold(
-          body: Center(
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -167,6 +165,9 @@ class Landing extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: 30,
+            ),
             InkWell(
               onTap: () {
                 final provider =
@@ -211,44 +212,10 @@ class Landing extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            InkWell(
-              onTap: () {
-                navigateHome();
-              },
-              child: Ink(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  color: Color(0xFF000000),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(15),
-                  child: Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: [
-                      Image.asset(
-                        "lib/assets/apple.png",
-                        width: 40.0,
-                        height: 40.0,
-                      ),
-                      SizedBox(width: 15),
-                      Text('Continue with Apple',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                          )),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 120,
-            ),
+            SizedBox(height: 80),
           ],
         ),
-      )),
+      ),
     );
   }
 }
